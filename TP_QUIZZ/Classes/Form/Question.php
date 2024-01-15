@@ -9,9 +9,9 @@ class Question
         protected string $name,
         protected string $type,
         protected string $text,
-        protected array $choices = [],
         protected string $answer,
-        protected string $score,
+        protected int $score,
+        protected array $choices = [],
     ) {
     }
 
@@ -45,7 +45,7 @@ class Question
         return $this->answer;
     }
 
-    public function getScore(): string
+    public function getScore(): int
     {
         return $this->score;
     }
