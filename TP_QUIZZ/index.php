@@ -14,7 +14,7 @@ use Form\Type\Hidden;
 use Form\Type\Textarea;
 use Form\Question;
 
-$fichier = file_get_contents("./Data/question.json");
+$fichier = file_get_contents("./Data/questions.json");
 $question = json_decode($fichier, true);
 $questions = [];
 

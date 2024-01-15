@@ -1,0 +1,37 @@
+[
+    {
+        "uuid": "8030a37e-947b-11ee-b9d1-0242ac120002",
+        "name": "Question1",
+        "type": "radio",
+        "text": "Le label de la question 1.",
+        "choices": [
+            "Answer 1",
+            "Answer 2",
+            "Answer 3"
+        ],
+        "answer": "Answer 2",   
+        "score": 1
+    },
+    {
+        "uuid": "8d7f7078-947b-11ee-b9d1-0242ac120002",
+        "name": "Question2",
+        "type": "radio",
+        "text": "Le label de la question 2.",
+        "choices": [
+            "Answer 1",
+            "Answer 2",
+            "Answer 3"
+        ],
+        "answer": "Answer 3",
+        "score": 1
+    },
+    {
+        "uuid": "8d7f7078-947b-11ee-b9d1-0242ac120002",
+        "name": "Question3",
+        "type": "text",
+        "text": "Quelle est la dizaine dans le nombre 342",
+        "choices": [],
+        "answer": "4",
+        "score": 1
+    }
+]
