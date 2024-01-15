@@ -21,17 +21,17 @@ $questions = [];
 
 foreach ($question as $key => $value) {
 
-    $questions[$key] =  new Question($value["uuid"], $value["type"], $value["label"],  $value["correct"],$value["choices"]);
+    $questions[$key] =  new Question($value["uuid"], $value["name"], $value["type"], $value["text"], $value["choices"], $value["answer"], $value["score"]);
 
 }
 
 
 foreach ($questions as $key => $value) {
     echo "<section>";
-    echo "<h1>".$value->getLabel()."</h1>";
+    echo "<h1>".$value->getText()."</h1>";
     
     if ($value->getType() == "radio") {
-        foreach ($value->getOptions() as $key => $value) {
+        foreach ($value->getChoices() as $key => $value) {
             echo "<input type='radio' name='radio' value='".$value."'>".$value."<br>";
         }
     }
