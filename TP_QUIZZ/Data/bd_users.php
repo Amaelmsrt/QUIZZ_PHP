@@ -23,11 +23,24 @@ try{
   $stmt->bindParam(':nom',$nom);
   $stmt->bindParam(':prenom',$prenom);
 
-  foreach ($users as $u){
-    $nom=$u['nom'];
-    $prenom=$u['prenom'];
-    $stmt->execute();
-  }
+  foreach ($users as $u) {
+    $nom = $u['nom'];
+    $prenom = $u['prenom'];
+
+    // Vérifier si l'utilisateur existe déjà
+    $checkIfExists = $file_db->prepare("SELECT COUNT(*) FROM users WHERE nom = :nom AND prenom = :prenom");
+    $checkIfExists->bindParam(':nom', $nom);
+    $checkIfExists->bindParam(':prenom', $prenom);
+    $checkIfExists->execute();
+
+    // Si l'utilisateur n'existe pas, alors l'ajouter
+    if ($checkIfExists->fetchColumn() == 0) {
+        $stmt->execute();
+        echo "Insertion de $prenom $nom en base réussie !<br/>";
+    } else {
+        echo "L'utilisateur $prenom $nom existe déjà, il n'a pas été ajouté.<br/>";
+    }
+}
   
   echo "Insertion en base reussie !";
 
