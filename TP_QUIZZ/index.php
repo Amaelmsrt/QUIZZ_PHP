@@ -3,6 +3,9 @@
 
 <body>
 <?php
+
+require 'Data/bd_users.php';
+
 // SPL autoloader
 require 'Classes/autoloader.php'; 
 Autoloader::register(); 
