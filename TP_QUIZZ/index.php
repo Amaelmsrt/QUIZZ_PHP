@@ -1,7 +1,6 @@
 <?php
 
 require 'Data/bd_users.php';
-=======
 
 session_start();
 
@@ -29,7 +28,6 @@ echo "<h1> Répondez aux questions</h1>";
 foreach ($question as $key => $value) {
     $questions[$key] =  new Question($value["uuid"], $value["name"], $value["type"], $value["text"], $value["answer"], $value["score"], $value["choices"]);
 }
-session_start();
 $_SESSION["questions"] = $questions;
 
 
