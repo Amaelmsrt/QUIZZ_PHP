@@ -7,34 +7,46 @@ try{
   $file_db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_WARNING);
   $file_db->exec("CREATE TABLE IF NOT EXISTS users ( 
     id INTEGER PRIMARY KEY,
-    nom TEXT,
-    prenom TEXT)");
+    username TEXT,
+    password TEXT)");
 
   $users=array(
-    array('nom' => 'Coursimault',
-      'prenom' => 'Irvyn'),
-    array('nom' => 'Maserati',
-      'prenom' => 'Amael')
+    array('username' => 'irvyncsm',
+      'password' => 'irvyncsm'),
+    array('username' => 'amael',
+      'password' => 'amael')
     );
 
-    $insert="INSERT INTO users (nom, prenom) VALUES (:nom, :prenom )";
+    $insert="INSERT INTO users (username, password) VALUES (:username, :password )";
   $stmt=$file_db->prepare($insert);
   // on lie les parametres aux variables
-  $stmt->bindParam(':nom',$nom);
-  $stmt->bindParam(':prenom',$prenom);
+  $stmt->bindParam(':username',$username);
+  $stmt->bindParam(':password',$password);
 
-  foreach ($users as $u){
-    $nom=$u['nom'];
-    $prenom=$u['prenom'];
-    $stmt->execute();
-  }
+  foreach ($users as $u) {
+    $username = $u['username'];
+    $password = $u['password'];
+
+    // Vérifier si l'utilisateur existe déjà
+    $checkIfExists = $file_db->prepare("SELECT COUNT(*) FROM users WHERE username = :username");
+    $checkIfExists->bindParam(':username', $username);
+    $checkIfExists->execute();
+
+    // Si l'utilisateur n'existe pas, alors l'ajouter
+    if ($checkIfExists->fetchColumn() == 0) {
+        $stmt->execute();
+        echo "Insertion de $username en base réussie !<br/>";
+    } else {
+        echo "L'utilisateur $username existe déjà, il n'a pas été ajouté.<br/>";
+    }
+}
   
   echo "Insertion en base reussie !";
 
   // on va tester le contenu de la table users
   $result=$file_db->query('SELECT * from users');
   foreach ($result as $m){
-    echo "<br/>\n".$m['prenom'].' '.$m['nom'];
+    echo "<br/>\n".$m['username'];
   }
   // on ferme la connexion
   $file_db=null;

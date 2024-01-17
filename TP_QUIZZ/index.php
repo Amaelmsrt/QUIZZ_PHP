@@ -1,5 +1,14 @@
 <?php
+
 require 'Data/bd_users.php';
+=======
+
+session_start();
+
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit();
+}
 
 // SPL autoloader
 require 'Classes/autoloader.php'; 
@@ -46,4 +55,6 @@ foreach ($questions as $key => $value) {
 }
 echo "<input type='submit' value='Envoyer'>";
 echo "</form>";
+
+echo "<br><a href='logout.php'>Logout</a>";
 ?>
