@@ -1,5 +1,8 @@
 <?php
 
+require 'Data/bd_users.php';
+=======
+
 session_start();
 
 if (!isset($_SESSION['user_id'])) {
@@ -11,7 +14,6 @@ if (!isset($_SESSION['user_id'])) {
 require 'Classes/autoloader.php'; 
 Autoloader::register(); 
 
-// Go
 use Form\Type\Text;
 use Form\Type\Checkbox;
 use Form\Type\Hidden;
@@ -25,12 +27,13 @@ $questions = [];
 echo "<h1> Répondez aux questions</h1>";
 
 foreach ($question as $key => $value) {
-
     $questions[$key] =  new Question($value["uuid"], $value["name"], $value["type"], $value["text"], $value["answer"], $value["score"], $value["choices"]);
-
 }
+session_start();
+$_SESSION["questions"] = $questions;
 
-echo "<form action='result.php' method='post'>";
+
+echo "<form action='Submit.php' method='post'>";
 foreach ($questions as $key => $value) {
     echo "<ul>";
     echo "<li>";
@@ -38,20 +41,20 @@ foreach ($questions as $key => $value) {
     echo "<h3>".$value->getText()."</h3>";
     
     if ($value->getType() == "radio") {
-        foreach ($value->getChoices() as $key => $value) {
-            echo "<input type='radio' name='radio' value='".$value."'>".$value."<br>";
+        foreach ($value->getChoices() as $choice) {
+            echo "<input type='radio' name='reponses[".$value->getUuid()."]' value='".$choice."'>".$choice."<br>";
+            echo "<input type='hidden' name='reponses[".$value->getUuid()."]' value='".$value->getAnswer()."'>";
         }
     } else if ($value->getType() == "text") {
-        echo "<textarea name='textarea' rows='1' cols='20'></textarea>";
+        echo "<input type='text' name='reponses[".$value->getUuid()."]' value=''>";
+        echo "<input type='hidden' name='reponses[".$value->getUuid()."]' value='".$value->getAnswer()."'>";
     } 
     echo "</section>";
     echo "</li>";
     echo "</ul>";
-    
-    
-    
 }
 echo "<input type='submit' value='Envoyer'>";
 echo "</form>";
+
 echo "<br><a href='logout.php'>Logout</a>";
 ?>
