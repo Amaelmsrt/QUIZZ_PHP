@@ -34,7 +34,7 @@ foreach ($questions as $key => $value) {
     
     if ($value->getType() == "radio") {
         foreach ($value->getChoices() as $choice) {
-            echo "<input type='radio' name='reponses[".$value->getUuid()."]' value='".$choice."'>".$choice."<br>";
+            echo "<input type='radio' name='reponses[".$value->getUuid()."]' value='".$choice."' required>".$choice."<br>";
             echo "<input type='hidden' name='reponses_hidden[".$value->getUuid()."]' value='".$value->getAnswer()."'>";
             echo "<input type='hidden' name='scores_reponses[".$value->getUuid()."]' value='".$value->getScore()."'>";
         }
