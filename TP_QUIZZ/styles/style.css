@@ -1,8 +1,7 @@
-/* style.css */
 
 body {
     font-family: Arial, sans-serif;
-    text-align: center; /* Ajout pour centrer le contenu */
+    text-align: center;
 }
 
 h1 {
@@ -11,8 +10,8 @@ h1 {
 
 form {
     width: 60%;
-    margin: 0 auto; /* Pour centrer le formulaire horizontalement */
-    text-align: left; /* Réinitialiser le centrage du texte à gauche dans le formulaire */
+    margin: 0 auto;
+    text-align: left;
 }
 
 ul {
@@ -52,6 +51,11 @@ input[type="submit"]:hover {
     background-color: #0056b3;
 }
 
+.envoyer {
+    display: flex;
+    justify-content: center;
+}
+
 a {
     display: block;
     margin-top: 20px;
@@ -73,4 +77,29 @@ p.correct {
 
 p.incorrect {
     color: #dc3545;
+}
+
+.bottom {
+    position: relative;
+}
+
+.bottom a {
+    position: absolute;
+    right: 0;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.bottom a:hover {
+    background-color: #0056b3;
+}
+
+.bottom p {
+    margin: 5px 20px;
+    font-size: 20px;
 }

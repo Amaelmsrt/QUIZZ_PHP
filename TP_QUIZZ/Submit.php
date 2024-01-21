@@ -9,15 +9,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['reponses'])) {
         $questions = $_SESSION["questions"];
     }
     $score = 0;
-    // AFFICHAGE DES REPONSES
+    $nombre_questions = count($questions);
+    foreach ($questions as $key => $value) {
+        if ($value->getType() == "text") {
+            $reponseUser = strtolower(strip_tags(trim($_POST['reponses'][$value->getUuid()])));
+        } else {
+            $reponseUser = $_POST['reponses'][$value->getUuid()];
+        }
+        if ($reponseUser == $value->getAnswer()) {
+            $score += $value->getScore();
+        }
+    }
     echo "<link rel='stylesheet' href='styles/style.css'>";
-    echo "<h1> Vos réponses </h1>";
+    echo "<h1> Votre score : ".$score."/".$nombre_questions."</h1>";
     foreach ($questions as $key => $value) {
         echo "<section>";
         echo "<h3>".$value->getText()."</h3>";
-        if ($_POST['reponses'][$value->getUuid()] == $value->getAnswer()) {
+        if ($value->getType() == "text") {
+            $reponseUser = strtolower(strip_tags(trim($_POST['reponses'][$value->getUuid()])));
+        } else {
+            $reponseUser = $_POST['reponses'][$value->getUuid()];
+        }
+        if ($reponseUser == $value->getAnswer()) {
             echo "<p class='correct'>&#x2705; Bravo ! Bonne réponse. </p>";
-            $score += $value->getScore();
         } else {
             echo "<p class='incorrect'>&#x274C; Désolé ! Mauvaise réponse. </p>";
         }
@@ -25,12 +39,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['reponses'])) {
         echo "<p> La réponse attendue : ".$_POST['reponses_hidden'][$value->getUuid()]."</p>";
         echo "</section>";
     }
-    $nombre_questions = count($questions);
-    echo "<p>Score : ".$score."/".$nombre_questions."</p>";
-    
-
-
-
+    echo "<div class='bottom'>";
+    echo "<a href='index.php'>Recommencer le quizz</a>";
+    echo "</div>";
 } else {
     echo "Accès non autorisé.";
 }

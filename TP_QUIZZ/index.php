@@ -47,7 +47,9 @@ foreach ($questions as $key => $value) {
     echo "</li>";
     echo "</ul>";
 }
+echo "<div class='envoyer'>";
 echo "<input type='submit' value='Envoyer'>";
+echo "</div>";
 echo "</form>";
 
 echo "<br><a href='logout.php'>Logout</a>";
