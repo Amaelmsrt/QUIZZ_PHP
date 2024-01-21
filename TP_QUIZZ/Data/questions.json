@@ -26,12 +26,57 @@
         "score": 1
     },
     {
-        "uuid": "8d7f7078-947b-11ee-b9d1-0242ac120002",
+        "uuid": "8d7f7077-947b-11ee-b9d1-0242ac120002",
         "name": "Question3",
         "type": "text",
         "text": "Quelle est la dizaine dans le nombre 342",
         "choices": [],
         "answer": "4",
+        "score": 1
+    },
+    {
+        "uuid": "8d7f7076-947b-11ee-b9d1-0242ac120002",
+        "name": "Question4",
+        "type": "text",
+        "text": "Quelle est la centaine dans le nombre 342",
+        "choices": [],
+        "answer": "3",
+        "score": 1
+    },
+    {
+        "uuid": "8d7f7075-947b-11ee-b9d1-0242ac120002",
+        "name": "Question5",
+        "type": "text",
+        "text": "Quelle est l'unité dans le nombre 342",
+        "choices": [],
+        "answer": "2",
+        "score": 1
+    },
+    {
+        "uuid": "8d7f7074-947b-11ee-b9d1-0242ac120002",
+        "name": "Question6",
+        "type": "text",
+        "text": "Quelle est la dizaine dans le nombre 342",
+        "choices": [],
+        "answer": "4",
+        "score": 1
+    },
+    {
+        "uuid": "8d7f7073-947b-11ee-b9d1-0242ac120002",
+        "name": "Question7",
+        "type": "text",
+        "text": "Quelle est la centaine dans le nombre 342",
+        "choices": [],
+        "answer": "3",
+        "score": 1
+    },
+    {
+        "uuid": "8d7f7072-947b-11ee-b9d1-0242ac120002",
+        "name": "Question8",
+        "type": "text",
+        "text": "Quelle est l'unité dans le nombre 342",
+        "choices": [],
+        "answer": "2",
         "score": 1
     }
 ]

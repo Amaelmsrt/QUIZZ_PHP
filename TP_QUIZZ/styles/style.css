@@ -1,0 +1,76 @@
+/* style.css */
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center; /* Ajout pour centrer le contenu */
+}
+
+h1 {
+    color: #333;
+}
+
+form {
+    width: 60%;
+    margin: 0 auto; /* Pour centrer le formulaire horizontalement */
+    text-align: left; /* Réinitialiser le centrage du texte à gauche dans le formulaire */
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 20px;
+}
+
+section {
+    border: 1px solid #ccc;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+h3 {
+    color: #007bff;
+}
+
+input[type="radio"],
+input[type="text"] {
+    margin-right: 10px;
+}
+
+input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+a {
+    display: block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #007bff;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+p {
+    margin: 5px 0;
+}
+
+p.correct {
+    color: #28a745;
+}
+
+p.incorrect {
+    color: #dc3545;
+}

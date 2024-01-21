@@ -1,13 +1,6 @@
 <?php
 
-require 'Data/bd_users.php';
-
 session_start();
-
-if (!isset($_SESSION['user_id'])) {
-    header("Location: login.php");
-    exit();
-}
 
 // SPL autoloader
 require 'Classes/autoloader.php'; 
@@ -23,6 +16,7 @@ $fichier = file_get_contents("./Data/questions.json");
 $question = json_decode($fichier, true);
 $questions = [];
 
+echo "<link rel='stylesheet' href='styles/style.css'>";
 echo "<h1> Répondez aux questions</h1>";
 
 foreach ($question as $key => $value) {
@@ -41,12 +35,12 @@ foreach ($questions as $key => $value) {
     if ($value->getType() == "radio") {
         foreach ($value->getChoices() as $choice) {
             echo "<input type='radio' name='reponses[".$value->getUuid()."]' value='".$choice."'>".$choice."<br>";
-            echo "<input type='hidden' name='reponses[".$value->getUuid()."]' value='".$value->getAnswer()."'>";
+            echo "<input type='hidden' name='reponses_hidden[".$value->getUuid()."]' value='".$value->getAnswer()."'>";
         }
     } else if ($value->getType() == "text") {
         echo "<input type='text' name='reponses[".$value->getUuid()."]' value=''>";
-        echo "<input type='hidden' name='reponses[".$value->getUuid()."]' value='".$value->getAnswer()."'>";
-    } 
+        echo "<input type='hidden' name='reponses_hidden[".$value->getUuid()."]' value='".$value->getAnswer()."'>";
+    }    
     echo "</section>";
     echo "</li>";
     echo "</ul>";
