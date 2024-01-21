@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['reponses'])) {
     if (isset($_SESSION["questions"])) {
         $questions = $_SESSION["questions"];
     }
-
+    $score = 0;
     // AFFICHAGE DES REPONSES
     echo "<link rel='stylesheet' href='styles/style.css'>";
     echo "<h1> Vos réponses </h1>";
@@ -16,14 +16,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['reponses'])) {
         echo "<section>";
         echo "<h3>".$value->getText()."</h3>";
         if ($_POST['reponses'][$value->getUuid()] == $value->getAnswer()) {
-            echo "<p class='correct'>&#x2705; Bravo! Bonne réponse. </p>";
+            echo "<p class='correct'>&#x2705; Bravo ! Bonne réponse. </p>";
+            $score += $value->getScore();
         } else {
-            echo "<p class='incorrect'>&#x274C; Désolé! Mauvaise réponse. </p>";
+            echo "<p class='incorrect'>&#x274C; Désolé ! Mauvaise réponse. </p>";
         }
         echo "<p> Votre réponse : ".$_POST['reponses'][$value->getUuid()]."</p>";
         echo "<p> La réponse attendue : ".$_POST['reponses_hidden'][$value->getUuid()]."</p>";
         echo "</section>";
     }
+    $nombre_questions = count($questions);
+    echo "<p>Score : ".$score."/".$nombre_questions."</p>";
+    
 
 
 
