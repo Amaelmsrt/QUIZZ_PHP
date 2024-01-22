@@ -1,6 +1,3 @@
-
-
-
 <?php
 require 'Data/bd_users.php';
 $file_db = new PDO('sqlite:users.sqlite3');
@@ -10,11 +7,7 @@ $file_db=new PDO('sqlite:users.sqlite3');
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
     exit();
-}
-
-$username = '';
-
-if (isset($_SESSION['user_id'])) {
+} else {
     $query = $file_db->prepare("SELECT username FROM users WHERE id = :user_id");
     $query->bindParam(":user_id", $_SESSION['user_id']);
     $query->execute();
