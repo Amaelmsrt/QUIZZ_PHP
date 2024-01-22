@@ -9,9 +9,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $passwordVerify = $_POST['passwordVerify'];
 
     if ($password != $passwordVerify) {
-        $error_message = "Passwords don't match";
+        $error_message = "Les mots de passe ne correspondent pas";
     } else {
-        // Vérifier si l'utilisateur existe déjà
         $checkIfExists = $file_db->prepare("SELECT COUNT(*) FROM users WHERE username = :username");
         $checkIfExists->bindParam(':username', $username);
         $checkIfExists->execute();
@@ -51,13 +50,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="register">
         <form action="register.php" method="post">
             <div class="fields">
-                <label for="username">Username:</label>
+                <label for="username">Pseudo :</label>
                 <input type="text" id="username" name="username" required>
             </div>
             <div class="fields">
-                <label for="password">Password:</label>
+                <label for="password">Mot de passe:</label>
                 <input type="password" id="password" name="password" required>
-                <label for="passwordVerify">Confirm password</label> 
+                <label for="passwordVerify">Confirmer le mot de passe</label> 
                 <input type="password" id="passwordVerify" name="passwordVerify" required>
             </div>
 

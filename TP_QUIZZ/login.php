@@ -14,19 +14,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'];
 
 
-    // Vérifier si l'utilisateur existe déjà
-    $checkIfExists = $file_db->prepare("SELECT COUNT(*) FROM users WHERE username = :username AND password = :password");
-    $checkIfExists->bindParam(':username', $username);
-    $checkIfExists->bindParam(':password', $password);
-    $checkIfExists->execute();
+    $getUser = $file_db->prepare("SELECT id FROM users WHERE username = :username AND password = :password");
+    $getUser->bindParam(':username', $username);
+    $getUser->bindParam(':password', $password);
+    $getUser->execute();
+    $userId = $getUser->fetchColumn();
 
-    if ($checkIfExists->fetchColumn() > 0) {
-        // Authentication successful, set user session
-        $_SESSION['user_id'] = 1; // Replace with the actual user ID from your system
+    if ($userId) {
+        $_SESSION['user_id'] = $userId;
         header("Location: index.php");
         exit();
     } else {
-        // Authentication failed, show error message
         $error_message = "Invalid username or password";
     }
 }
@@ -54,11 +52,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="login">
         <form action="login.php" method="post">
             <div id="username">
-                <label for="username">Username:</label>
+                <label for="username">Pseudo :</label>
                 <input type="text" id="username" name="username" required>
             </div>
             <div id="password">
-                <label for="password">Password:</label>
+                <label for="password">Mot de passe :</label>
                 <input type="password" id="password" name="password" required>
             </div>
             <div id="buttons">
