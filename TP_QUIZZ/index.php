@@ -1,6 +1,13 @@
 <?php
 
+require 'Data/bd_users.php';
+
 session_start();
+
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit();
+}
 
 // SPL autoloader
 require 'Classes/autoloader.php'; 

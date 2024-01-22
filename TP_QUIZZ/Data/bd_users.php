@@ -35,19 +35,12 @@ try{
     // Si l'utilisateur n'existe pas, alors l'ajouter
     if ($checkIfExists->fetchColumn() == 0) {
         $stmt->execute();
-        echo "Insertion de $username en base réussie !<br/>";
-    } else {
-        echo "L'utilisateur $username existe déjà, il n'a pas été ajouté.<br/>";
     }
 }
-  
-  echo "Insertion en base reussie !";
+
 
   // on va tester le contenu de la table users
   $result=$file_db->query('SELECT * from users');
-  foreach ($result as $m){
-    echo "<br/>\n".$m['username'];
-  }
   // on ferme la connexion
   $file_db=null;
 
