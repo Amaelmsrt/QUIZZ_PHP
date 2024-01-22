@@ -5,12 +5,20 @@ namespace Form;
 class Question
 {
     public function __construct(
+        protected string $uuid,
         protected string $name,
         protected string $type,
-        protected string $label,
-        protected string $goodAnswer,
-        protected array $options = [],
-    ){}
+        protected string $text,
+        protected string $answer,
+        protected int $score,
+        protected array $choices = [],
+    ) {
+    }
+
+    public function getUuid(): string
+    {
+        return $this->uuid;
+    }
 
     public function getName(): string
     {
@@ -22,19 +30,24 @@ class Question
         return $this->type;
     }
 
-    public function getLabel(): string
+    public function getText(): string
     {
-        return $this->label;
+        return $this->text;
     }
 
-    public function getGoodAnswer(): string
+    public function getChoices(): array
     {
-        return $this->goodAnswer;
+        return $this->choices;
     }
 
-    public function getOptions(): array
+    public function getAnswer(): string
     {
-        return $this->options;
+        return $this->answer;
+    }
+
+    public function getScore(): int
+    {
+        return $this->score;
     }
 }
 

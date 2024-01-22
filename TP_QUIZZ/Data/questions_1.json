@@ -1,0 +1,120 @@
+[
+    {
+        "uuid": "1",
+        "name": "Question 1",
+        "type": "radio",
+        "text": "Qu'est-ce que PHP signifie ?",
+        "choices": [
+            "Personal Home Page",
+            "Hypertext Preprocessor",
+            "Private Hypertext Processor"
+        ],
+        "answer": "Hypertext Preprocessor",
+        "score": 1
+    },
+    {
+        "uuid": "2",
+        "name": "Question 2",
+        "type": "radio",
+        "text": "Quel symbole est utilisé pour les commentaires sur une seule ligne en PHP ?",
+        "choices": [
+            "//",
+            "#",
+            "--"
+        ],
+        "answer": "//",
+        "score": 1
+    },
+    {
+        "uuid": "3",
+        "name": "Question 3",
+        "type": "text",
+        "text": "Quelle fonction est utilisée pour afficher du texte en PHP ?",
+        "choices": [],
+        "answer": "echo",
+        "score": 1
+    },
+    {
+        "uuid": "4",
+        "name": "Question 4",
+        "type": "radio",
+        "text": "Comment déclarer une variable en PHP ?",
+        "choices": [
+            "$ma_variable = valeur;",
+            "ma_variable = valeur;",
+            "var ma_variable = valeur;"
+        ],
+        "answer": "$ma_variable = valeur;",
+        "score": 1
+    },
+    {
+        "uuid": "5",
+        "name": "Question 5",
+        "type": "radio",
+        "text": "Quelle est la fonction pour obtenir la longueur d'une chaîne de caractères en PHP ?",
+        "choices": [
+            "len()",
+            "length()",
+            "strlen()"
+        ],
+        "answer": "strlen()",
+        "score": 1
+    },
+    {
+        "uuid": "6",
+        "name": "Question 6",
+        "type": "radio",
+        "text": "Quel opérateur est utilisé pour la concaténation de chaînes en PHP ?",
+        "choices": [
+            "+",
+            ".",
+            "&"
+        ],
+        "answer": ".",
+        "score": 1
+    },
+    {
+        "uuid": "7",
+        "name": "Question 7",
+        "type": "text",
+        "text": "Quelle est la fonction pour inclure un fichier en PHP ?",
+        "choices": [],
+        "answer": "include",
+        "score": 1
+    },
+    {
+        "uuid": "8",
+        "name": "Question 8",
+        "type": "radio",
+        "text": "Quelle boucle est utilisée pour parcourir un tableau en PHP ?",
+        "choices": [
+            "for",
+            "while",
+            "foreach"
+        ],
+        "answer": "foreach",
+        "score": 1
+    },
+    {
+        "uuid": "9",
+        "name": "Question 9",
+        "type": "text",
+        "text": "Quelle est la fonction pour rediriger en PHP ?",
+        "choices": [],
+        "answer": "header",
+        "score": 1
+    },
+    {
+        "uuid": "10",
+        "name": "Question 10",
+        "type": "radio",
+        "text": "Quelle fonction est utilisée pour vérifier l'existence d'un fichier en PHP ?",
+        "choices": [
+            "file_exists()",
+            "is_file()",
+            "file_check()"
+        ],
+        "answer": "file_exists()",
+        "score": 1
+    }
+]
