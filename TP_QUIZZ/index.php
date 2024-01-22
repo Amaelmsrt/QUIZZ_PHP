@@ -1,9 +1,10 @@
 <?php
 require 'Data/bd_users.php';
-$file_db = new PDO('sqlite:users.sqlite3');
+
 session_start();
 
 $file_db=new PDO('sqlite:users.sqlite3');
+
 if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
     exit();
