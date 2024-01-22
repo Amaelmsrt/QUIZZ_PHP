@@ -2,9 +2,8 @@
 
 
 <?php
-
 require 'Data/bd_users.php';
-
+$file_db = new PDO('sqlite:users.sqlite3');
 session_start();
 
 $file_db=new PDO('sqlite:users.sqlite3');
@@ -38,55 +37,34 @@ if (isset($_SESSION['user_id'])) {
     echo "</div>";
     echo "</nav>";
     
-
-// SPL autoloader
-require 'Classes/autoloader.php'; 
-Autoloader::register(); 
-
-use Form\Type\Text;
-use Form\Type\Checkbox;
-use Form\Type\Hidden;
-use Form\Type\Textarea;
-use Form\Question;
-
-$fichier = file_get_contents("./Data/questions.json");
-$question = json_decode($fichier, true);
-$questions = [];
-
-
-echo "<h1> Répondez aux questions</h1>";
-
-foreach ($question as $key => $value) {
-    $questions[$key] =  new Question($value["uuid"], $value["name"], $value["type"], $value["text"], $value["answer"], $value["score"], $value["choices"]);
-}
-$_SESSION["questions"] = $questions;
-
-
-echo "<form action='Submit.php' method='post'>";
-foreach ($questions as $key => $value) {
-    echo "<ul>";
-    echo "<li>";
-    echo "<section>";
-    echo "<h3>".$value->getText()."</h3>";
-    
-    if ($value->getType() == "radio") {
-        foreach ($value->getChoices() as $choice) {
-            echo "<input type='radio' name='reponses[".$value->getUuid()."]' value='".$choice."' required>".$choice."<br>";
-            echo "<input type='hidden' name='reponses_hidden[".$value->getUuid()."]' value='".$value->getAnswer()."'>";
-            echo "<input type='hidden' name='scores_reponses[".$value->getUuid()."]' value='".$value->getScore()."'>";
-        }
-    } else if ($value->getType() == "text") {
-        echo "<input type='text' name='reponses[".$value->getUuid()."]' value=''>";
-        echo "<input type='hidden' name='reponses_hidden[".$value->getUuid()."]' value='".$value->getAnswer()."'>";
-        echo "<input type='hidden' name='scores_reponses[".$value->getUuid()."]' value='".$value->getScore()."'>";
-    }    
-    echo "</section>";
-    echo "</li>";
-    echo "</ul>";
-}
-echo "<div class='envoyer'>";
-echo "<input type='submit' value='Envoyer'>";
-echo "</div>";
-echo "</form>";
-
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <title>Quiz Selection</title>
+</head>
+<body>
+    <h1>Choississez un quiz</h1>
+    <ul class="quiz-list">
+        <?php
+        $query = $file_db->query("SELECT * FROM quizz");
+
+        while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
+            $quizName = $row['quiz_name'];
+            $quizId = $row['id'];
+            echo "<li>";
+            echo "<a href='quiz{$quizId}.php'>";
+            echo "<img src='Data/images/{$quizId}.png' alt='{$quizName}'>";
+            echo "<span>{$quizName}</span>";
+            echo "</a>";
+            echo "</li>";
+        }
+        ?>
+    </ul>
+    <a href='logout.php'>Logout</a>
+</body>
+</html>
