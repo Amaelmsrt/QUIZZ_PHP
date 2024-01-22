@@ -20,6 +20,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['reponses'])) {
             $score += $value->getScore();
         }
     }
+
+    $file_db=new PDO('sqlite:users.sqlite3');
+    $file_db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+
+    $stmt = $file_db->prepare("INSERT INTO user_quizz (id_user, id_quiz, score) VALUES (:id_user, :id_quiz, :score)");
+    $stmt->bindParam(':id_user', $_SESSION['user_id']);
+    $stmt->bindParam(':id_quiz', $_SESSION['id_quiz']);
+    $stmt->bindParam(':score', $score);
+    $stmt->execute();
+    
+
+
     echo "<link rel='stylesheet' href='styles/style.css'>";
     echo "<h1> Votre score : ".$score."/".$nombre_questions."</h1>";
     foreach ($questions as $key => $value) {

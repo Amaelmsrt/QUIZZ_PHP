@@ -9,7 +9,7 @@ if (!isset($_SESSION['user_id'])) {
     header("Location: login.php");
     exit();
 } else {
-    $query = $file_db->prepare("SELECT username FROM users WHERE id = :user_id");
+    $query = $file_db->prepare("SELECT username FROM users WHERE id_user = :user_id");
     $query->bindParam(":user_id", $_SESSION['user_id']);
     $query->execute();
     $result = $query->fetch(PDO::FETCH_ASSOC);
@@ -49,7 +49,7 @@ if (!isset($_SESSION['user_id'])) {
 
         while ($row = $query->fetch(PDO::FETCH_ASSOC)) {
             $quizName = $row['quiz_name'];
-            $quizId = $row['id'];
+            $quizId = $row['id_quiz'];
             echo "<li>";
             echo "<a href='quiz{$quizId}.php'>";
             echo "<img src='Data/images/{$quizId}.png' alt='{$quizName}'>";

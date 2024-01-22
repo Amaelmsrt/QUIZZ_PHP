@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'];
 
 
-    $getUser = $file_db->prepare("SELECT id FROM users WHERE username = :username AND password = :password");
+    $getUser = $file_db->prepare("SELECT id_user FROM users WHERE username = :username AND password = :password");
     $getUser->bindParam(':username', $username);
     $getUser->bindParam(':password', $password);
     $getUser->execute();

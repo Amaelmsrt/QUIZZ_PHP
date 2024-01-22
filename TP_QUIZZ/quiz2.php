@@ -16,6 +16,8 @@ $fichier = file_get_contents("./Data/questions_2.json");
 $question = json_decode($fichier, true);
 $questions = [];
 
+$_SESSION["id_quiz"] = 2;
+
 echo "<link rel='stylesheet' href='styles/style.css'>";
 
 echo "<h1> Répondez aux questions</h1>";

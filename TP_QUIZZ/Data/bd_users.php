@@ -6,12 +6,12 @@ try{
   $file_db=new PDO('sqlite:users.sqlite3');
   $file_db->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_WARNING);
   $file_db->exec("CREATE TABLE IF NOT EXISTS users ( 
-    id INTEGER PRIMARY KEY,
+    id_user INTEGER PRIMARY KEY,
     username TEXT,
     password TEXT)");
 
   $file_db->exec("CREATE TABLE IF NOT EXISTS quizz (
-    id INTEGER PRIMARY KEY,
+    id_quiz INTEGER PRIMARY KEY,
     quiz_name TEXT UNIQUE
   )");
 
@@ -19,8 +19,8 @@ try{
     id_user INTEGER,
     id_quiz INTEGER,
     score INTEGER,
-    FOREIGN KEY (id_user) REFERENCES users(id),
-    FOREIGN KEY (id_quiz) REFERENCES quizz(id),
+    FOREIGN KEY (id_user) REFERENCES users(id_user),
+    FOREIGN KEY (id_quiz) REFERENCES quizz(id_quiz),
     PRIMARY KEY (id_user, id_quiz)
   )");
 
