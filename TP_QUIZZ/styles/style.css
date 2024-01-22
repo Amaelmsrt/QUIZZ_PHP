@@ -103,3 +103,51 @@ p.incorrect {
     margin: 5px 20px;
     font-size: 20px;
 }
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+nav {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.navbar h1 {
+    color: #333;
+    margin: 0;
+}
+
+.infos {
+    display: flex;
+    align-items: center;
+}
+
+.infos p {
+    margin: 0 20px;
+    color: #fff;
+}
+
+.infos a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.infos a:hover {
+    text-decoration: underline;
+}
+
+form {
+    width: 60%;
+    margin: 0 auto;
+    text-align: left;
+}
