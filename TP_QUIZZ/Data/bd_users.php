@@ -12,7 +12,7 @@ try{
 
   $file_db->exec("CREATE TABLE IF NOT EXISTS quizz (
     id INTEGER PRIMARY KEY,
-    quiz_name TEXT
+    quiz_name TEXT UNIQUE
   )");
 
   $file_db->exec("CREATE TABLE IF NOT EXISTS user_quizz (

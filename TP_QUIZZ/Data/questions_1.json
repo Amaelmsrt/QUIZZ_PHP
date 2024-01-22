@@ -116,5 +116,18 @@
         ],
         "answer": "file_exists()",
         "score": 1
+    },
+    {
+        "uuid": "6",
+        "name": "Question 6",
+        "type": "radio",
+        "text": "Quelle est la fonction utilisée pour obtenir la longueur d'une liste en Python ?",
+        "choices": [
+            "len()",
+            "length()",
+            "count()"
+        ],
+        "answer": "len()",
+        "score": 1
     }
 ]

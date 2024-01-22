@@ -1,0 +1,63 @@
+[
+    {
+        "uuid": "1",
+        "name": "Question 1",
+        "type": "radio",
+        "text": "Que fait la fonction 'print' en Python ?",
+        "choices": [
+            "Affiche du texte à l'écran",
+            "Effectue des calculs mathématiques",
+            "Crée un nouveau fichier"
+        ],
+        "answer": "Affiche du texte à l'écran",
+        "score": 1
+    },
+    {
+        "uuid": "2",
+        "name": "Question 2",
+        "type": "radio",
+        "text": "Comment commente-t-on une seule ligne en Python ?",
+        "choices": [
+            "# Ceci est un commentaire",
+            "// Ceci est un commentaire",
+            "-- Ceci est un commentaire"
+        ],
+        "answer": "# Ceci est un commentaire",
+        "score": 1
+    },
+    {
+        "uuid": "3",
+        "name": "Question 3",
+        "type": "text",
+        "text": "Quel mot-clé est utilisé pour définir une fonction en Python ?",
+        "choices": [],
+        "answer": "def",
+        "score": 1
+    },
+    {
+        "uuid": "4",
+        "name": "Question 4",
+        "type": "radio",
+        "text": "Comment déclare-t-on une variable en Python ?",
+        "choices": [
+            "ma_variable = valeur",
+            "variable = valeur",
+            "var ma_variable = valeur"
+        ],
+        "answer": "ma_variable = valeur",
+        "score": 1
+    },
+    {
+        "uuid": "5",
+        "name": "Question 5",
+        "type": "radio",
+        "text": "Quel opérateur est utilisé pour la concaténation de chaînes en Python ?",
+        "choices": [
+            "+",
+            ".",
+            "&"
+        ],
+        "answer": ".",
+        "score": 1
+    }
+]
