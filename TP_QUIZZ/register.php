@@ -57,6 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div class="fields">
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" required>
+                <label for="passwordVerify">Confirm password</label> 
                 <input type="password" id="passwordVerify" name="passwordVerify" required>
             </div>
 

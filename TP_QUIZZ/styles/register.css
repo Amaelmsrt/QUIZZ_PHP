@@ -12,7 +12,6 @@
     color: #000;
     font-size: 3rem;
     margin-bottom: 2rem;
-    text-align: center;
 }
 
 .login form {
@@ -45,4 +44,17 @@
 .buttons {
     display: flex;
     justify-content: space-between;
+}
+
+.fields {
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    width: 20%;
+}
+
+form {
+    padding: 3rem;
 }
